@@ -14,15 +14,15 @@ build:
   number: 0
   noarch: python
   entry_points:
-    - bor = bor:main
+    - bor = bor.bor:main
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.8
   run:
-    - python >=3.6
+    - python >=3.8
 
 test:
   imports:
