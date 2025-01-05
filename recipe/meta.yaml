@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bor-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/bor-{{ version }}.tar.gz
   sha256: 944c058bd3304d34c47f52089fc62b9e8746d3420f3bea3a6dc020dcf351a8c1
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - bor = bor.bor:main
@@ -20,9 +20,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
-    - python >=3.8
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -32,6 +32,7 @@ test:
     - bor --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/furkanonder/bor/
